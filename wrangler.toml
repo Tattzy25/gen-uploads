@@ -5,8 +5,9 @@ compatibility_date = "2026-05-24"
 [[r2_buckets]]
 binding = "GEN_BUCKET"
 bucket_name = "gen"
+
 [observability]
-enabled = false
+enabled = true
 head_sampling_rate = 1
 
 [observability.logs]
@@ -19,3 +20,5 @@ invocation_logs = true
 enabled = true
 persist = true
 head_sampling_rate = 1
+
+logpush = false
