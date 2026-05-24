@@ -1,4 +1,4 @@
-name = "gen"
+name = "gen-uploads"
 main = "src/index.js"
 compatibility_date = "2026-05-24"
 
