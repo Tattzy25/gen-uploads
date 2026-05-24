@@ -6,8 +6,8 @@ export default {
   async fetch(request, env) {
     const body = await request.json();
     const customerId = body.customerId;
-    const style = body.style;
-    const color = body.color;
+    const style = body.style.replace(/\s+/g, "-");
+    const color = body.color.replace(/\s+/g, "-");
 
     const urls = [];
     for (const [key, value] of Object.entries(body)) {
