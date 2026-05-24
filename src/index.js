@@ -80,10 +80,14 @@ export default {
 };
 
 // ── Handle image URLs: download, upload to R2 under userId folder ──
-async function handleImageUrls(urls, userId, env) {
+async function handleImageUrls(urls, userId, env, body) {
+  const style = body.style || "default";
+  const color = body.color || "default";
+  const customerId = body.customerId || userId;
   const results = [];
 
-  for (const imageUrl of urls) {
+  for (let i = 0; i < urls.length; i++) {
+    const imageUrl = urls[i];
     const response = await fetch(imageUrl);
 
     if (!response.ok) {
@@ -111,7 +115,7 @@ async function handleImageUrls(urls, userId, env) {
       );
     }
 
-    const key = `images/${userId}/${shortId()}.${ext}`;
+    const key = `images/${style}/${color}/${customerId}-${i}.${ext}`;
     const arrayBuffer = await response.arrayBuffer();
 
     await env.GEN_BUCKET.put(key, arrayBuffer, {
