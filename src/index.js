@@ -51,7 +51,7 @@ export default {
         );
       }
 
-      return await handleImageUrls(urls, userId, env);
+      return await handleImageUrls(urls, userId, env, body);
     }
 
     // ── Multipart upload (local file) ──
