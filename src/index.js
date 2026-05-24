@@ -94,7 +94,7 @@ async function handleFile(file, env) {
     },
   });
 
-  const PUBLIC_DOMAIN = "gen.tattty.com";
+  const PUBLIC_DOMAIN = "tattty-uploads.tattty.com";
   const url = `https://${PUBLIC_DOMAIN}/${key}`;
 
   return new Response(
