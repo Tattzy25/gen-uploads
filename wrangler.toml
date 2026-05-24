@@ -1,9 +1,9 @@
-name = "gen"
+name = "gen-uploads"
 main = "src/index.js"
 compatibility_date = "2026-05-24"
 
 [[r2_buckets]]
-binding = "gen_BUCKET"
+binding = "GEN_BUCKET"
 bucket_name = "gen"
 [observability]
 enabled = false
