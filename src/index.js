@@ -4,7 +4,16 @@ const PUBLIC_DOMAIN = "tattty-uploads.tattty.com";
 
 export default {
   async fetch(request, env) {
-    const body = await request.json();
+    let body;
+    try {
+      body = await request.json();
+    } catch (e) {
+      return new Response(JSON.stringify({ error: "Invalid JSON" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
     const customerId = body.customerId;
     const style = body.style.replace(/\s+/g, "-");
     const color = body.color.replace(/\s+/g, "-");
